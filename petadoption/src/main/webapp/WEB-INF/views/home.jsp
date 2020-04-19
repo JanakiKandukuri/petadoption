@@ -36,7 +36,7 @@
 
 			</ul>
 			<span class="mt-2 mt-md-0">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+				<a class="btn btn-outline-success my-2 my-sm-0" href="${pageContext.request.contextPath}/signUp.htm">Sign Up</a>
 				<button type="button" class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#loginModal">Login</button>
 			</span>
 
