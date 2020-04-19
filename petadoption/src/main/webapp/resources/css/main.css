@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+body {
+  background-image: url("../images/bgImage.jpg");
+}
+
+#mainCarousel {
+	background-color: #666;
+	top: 100px;
+	
+}
+
+.carousel-item {
+	margin-left: 600px;
+}
