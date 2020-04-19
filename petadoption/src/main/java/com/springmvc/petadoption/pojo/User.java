@@ -1,6 +1,8 @@
 package com.springmvc.petadoption.pojo;
 
 
+import java.io.File;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,7 +15,7 @@ public class User {
 	
 	@Id
 	@GeneratedValue
-	private int userId;
+	private Integer userId;
 	
 	@NotNull
 	private String email;
@@ -24,16 +26,28 @@ public class User {
 	@NotNull
 	private String userName;
 	
-	private int age;
+	private Integer age;
+	
 	private String dateOfBirth;
+	
 	private String address;
 	
 	private Integer phoneNumber;
+	
 	private String housingType;
+
 	private String reason;
+	
 	private String gender;
-	private double income;
+	
+	private File image;
+	
+	private Double income;
+	
+	private String role;
+	
 	private String ssn;
+	
 	private String vetId;
 	
 //	image, role, house - can be 
@@ -42,11 +56,11 @@ public class User {
 
 	}
 
-	public int getUserId() {
+	public Integer getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
 
@@ -74,11 +88,11 @@ public class User {
 		this.userName = userName;
 	}
 
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 
@@ -130,12 +144,28 @@ public class User {
 		this.gender = gender;
 	}
 
-	public double getIncome() {
+	public File getImage() {
+		return image;
+	}
+
+	public void setImage(File image) {
+		this.image = image;
+	}
+
+	public Double getIncome() {
 		return income;
 	}
 
-	public void setIncome(double income) {
+	public void setIncome(Double income) {
 		this.income = income;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public String getSsn() {
@@ -153,6 +183,8 @@ public class User {
 	public void setVetId(String vetId) {
 		this.vetId = vetId;
 	}
+
+	
 
 	
 }

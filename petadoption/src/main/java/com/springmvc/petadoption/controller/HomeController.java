@@ -2,6 +2,7 @@ package com.springmvc.petadoption.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -63,7 +64,13 @@ public class HomeController {
 	  @RequestMapping(value = "/login", method = RequestMethod.POST)
 	    public String loginProccess(@Valid @ModelAttribute("login") Login login, BindingResult bindingResult) {
 		  
-		  User user = loginDao.getAnimalByEmail(login.getEmail(), login.getPassword());
+		  List<User> user = loginDao.getUserByEmail(login.getEmail(), login.getPassword());
+		  
+		  System.out.println(user);
+		  
+		  for(User u : user) {
+			  	System.out.println(u.getUserId());
+		  }
 		  
 	        if (bindingResult.hasErrors()) {
 	            return "login";
