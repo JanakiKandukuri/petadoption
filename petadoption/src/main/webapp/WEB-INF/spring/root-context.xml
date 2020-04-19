@@ -6,5 +6,7 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
 	<bean name="animalDao" class="com.springmvc.petadoption.dao.AnimalDAO" />
+	<bean name="user" class="com.springmvc.petadoption.pojo.User" />
+	<bean name="login" class="com.springmvc.petadoption.dao.LoginDAO" />
 		
 </beans>
