@@ -111,19 +111,29 @@
 						</div>
 						<div class="card col-sm-4">
 							<img class="navbar-brand"
-								src="${pageContext.request.contextPath}/resources/images/third.jpg" />
+								src="${pageContext.request.contextPath}/resources/images/fourth	.jpg" />
 
 							<div class="card-body">
-								<h3 class="card-title text-primary">Adopt Me Today</h3>
+								<h3 class="card-title text-primary">See you soon at Home</h3>
 							</div>
 
 						</div>
-
+	
 
 					</div>
-
-				</div>
-
+					<div class="form-row">
+							<div class="form-group col-md-2">
+								<label for="Selectyourcompanion">Select Your Companion</label> <select id="Selectyourcompanion"
+									class="form-control">
+									<option selected>Choose...</option>
+									<option>Dog</option>
+									<option>Cat</option>
+									<option>Horse</option>
+								</select>
+							</div>
+							<button type="Search" class="btn btn-primary">Search</button>
+						</div>
+</div>
 
 
 
@@ -241,14 +251,16 @@
 								<label for="gender">Gender</label> <select id="gender"
 									class="form-control">
 									<option selected>Choose...</option>
-									<option>...</option>
+									<option>Male</option>
+									<option>Female</option>
 								</select>
 							</div>
 							<div class="form-group col-md-2">
 								<label for="role">Role</label> <select id="role"
 									class="form-control">
 									<option selected>Choose...</option>
-									<option>...</option>
+									<option>Donar</option>
+										<option>Adopter</option>
 								</select>
 							</div>
 
@@ -257,7 +269,8 @@
 								<label for="inputhousingtype">Housing Type</label> <select
 									id="inputhousingtype" class="form-control">
 									<option selected>Choose...</option>
-									<option>...</option>
+									<option>Apartment</option>
+									<option>Villa</option>
 								</select>
 							</div>
 							<div class="form-row">
