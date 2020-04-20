@@ -402,7 +402,7 @@
 				</div>
 				<div class="modal-body">
 					<form:form action="${pageContext.request.contextPath}/login"
-						modelAttribute="login" method="">
+						modelAttribute="user" method="POST">
 						<div class="form-group">
 							<form:label path="email" for="email">Email</form:label>
 							<form:input path="email" class="form-control" id="email" />

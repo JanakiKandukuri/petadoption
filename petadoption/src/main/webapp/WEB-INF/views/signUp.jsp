@@ -16,6 +16,8 @@
 <body>
 
 
+
+
 	<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
 		<a class="navbar-brand" href="#"> <img
 			src="${pageContext.request.contextPath}/resources/images/icon.png" />
@@ -37,10 +39,9 @@
 			</ul> -->
 
 			<ul class="nav nav-pills mr-auto" id="pills-tab" role="tablist">
-				<li class="nav-item"><a class="nav-link"
-					id="pills-home-tab" data-toggle="pill" href="#pills-home"
-					role="tab" aria-controls="pills-home" aria-selected="false">Home</a>
-				</li>
+				<li class="nav-item"><a class="nav-link" id="pills-home-tab"
+					data-toggle="pill" href="#pills-home" role="tab"
+					aria-controls="pills-home" aria-selected="false">Home</a></li>
 				<li class="nav-item"><a class="nav-link" id="pills-profile-tab"
 					data-toggle="pill" href="#pills-profile" role="tab"
 					aria-controls="pills-profile" aria-selected="false">About</a></li>
@@ -48,7 +49,7 @@
 					data-toggle="pill" href="#pills-contact" role="tab"
 					aria-controls="pills-contact" aria-selected="false">Contact</a></li>
 			</ul>
-			
+
 			<span class="mt-2 mt-md-0"> <a
 				class="btn btn-outline-success my-2 my-sm-0"
 				href="${pageContext.request.contextPath}/signUp.htm">Sign Up</a>
@@ -63,39 +64,38 @@
 
 
 	<main role="main" class="container-fluid">
-<div class="tab-content" id="pills-tabContent">
-				<div class="tab-pane fade " id="pills-home"
-					role="tabpanel" aria-labelledby="pills-home-tab">
-					
-					
-					
-					Home
-					
-					
-					</div>
-				<div class="tab-pane fade" id="pills-profile" role="tabpanel"
-					aria-labelledby="pills-profile-tab">
-					
-					
-					About
-					
-					
-					
-					</div>
-				<div class="tab-pane fade" id="pills-contact" role="tabpanel"
-					aria-labelledby="pills-contact-tab">
-					
-					
-					
-					ontact
-					
-					
-					
-					</div>
-			</div>
+
+
+	
+		
+		name: ${user.email}
+		name: ${user.userId}
+		
+		
+		<a
+				class="btn btn-outline-success my-2 my-sm-0"
+				href="${pageContext.request.contextPath}/logout">Sign out</a>
+		
+
+
+		<%-- <h3>Session Scope (key==values)</h3>
+		${#session.getAttribute('user')}
+		<%
+			java.util.Enumeration<String> sessEnum = request.getSession().getAttributeNames();
+		out.println("==" + request.getSession().getAttribute("user"));
+		%> --%>
+
+
+
+		<div class="tab-content" id="pills-tabContent">
+			<div class="tab-pane fade " id="pills-home" role="tabpanel"
+				aria-labelledby="pills-home-tab">Home</div>
+			<div class="tab-pane fade" id="pills-profile" role="tabpanel"
+				aria-labelledby="pills-profile-tab">About</div>
+			<div class="tab-pane fade" id="pills-contact" role="tabpanel"
+				aria-labelledby="pills-contact-tab">ontact</div>
+		</div>
 		<form>
-
-
 	</main>
 
 
