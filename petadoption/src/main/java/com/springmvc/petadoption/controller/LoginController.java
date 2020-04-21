@@ -36,32 +36,32 @@ public class LoginController {
 	
 	  @RequestMapping(value = "/login", method = RequestMethod.POST)
 	    public String loginProccess(@Valid @ModelAttribute("user") User user, BindingResult bindingResult,HttpSession session) {
-		  
-		  session.invalidate();
-		  
-		  System.out.println("here in lgin process");
-		  
-		  System.out.println(bindingResult);
-		  
+		   
 		  if (bindingResult.hasErrors()) {
-
-			  System.out.println("binding result");
-			  System.out.println(user.getEmail());
-			  
 	            return "login";
 	        }
 		  
 		  
 		  List<User> userList = loginDao.getUserByEmail(user.getEmail(), user.getPassword());
 		  
-		  System.out.println(user.getEmail());
-		  
-		  
 		  if(!userList.isEmpty() && userList.size() < 2) {
 			  
-			  user.setUserId(userList.get(0).getUserId()); 
-			  return "signUp";
+			  if(userList.get(0).getRole().equals("giver")) {
+				  
+				  user.setUserId(userList.get(0).getUserId()); 
+				  
+				  return "redirect:/profileO?id="+user.getUserId(); 
 			  
+			  } else if(userList.get(0).getRole().equals("adopt")) {
+				 
+				  user.setUserId(userList.get(0).getUserId()); 
+				  return "Adoptor"; 
+				  
+			  } else {
+				  
+				  return "home";
+			  }
+			    
 		  } else {
 			  System.out.println("error");
 			  return "login";
@@ -74,7 +74,7 @@ public class LoginController {
 	    public String loginOut(User user, SessionStatus sessionStatus,  WebRequest request) {
 		  
 		  sessionStatus.setComplete();
-		  return "home";
+		  return "redirect:/logout";
 		 
 	    
 	  }

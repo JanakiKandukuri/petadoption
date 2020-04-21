@@ -30,23 +30,7 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row align-items-start">
-			<div class="col">One of three columns</div>
-			<div class="col">One of three columns</div>
-			<div class="col">One of three columns</div>
-		</div>
-		<div class="row align-items-center">
-			<div class="col">One of three columns</div>
-			<div class="col">One of three columns</div>
-			<div class="col">One of three columns</div>
-		</div>
-		<div class="row align-items-end">
-			<div class="col">One of three columns</div>
-			<div class="col">One of three columns</div>
-			<div class="col">One of three columns</div>
-		</div>
-
-
+		
 		<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
 			<a class="navbar-brand" href="#"> <img
 				src="${pageContext.request.contextPath}/resources/images/icon.png" />
@@ -70,7 +54,7 @@
 						data-toggle="pill" href="#pills-signup" role="tab"
 						aria-controls="pills-signup" aria-selected="false">Sign Up</a></li>
 
-					<li class="nav-item"><button type="button"
+					<li class="nav-item"><button type="button" id="loginModalBtn"
 							class="btn my-2 my-sm-0" data-toggle="modal"
 							data-target="#loginModal" style="color: #007bff">Login</button></li>
 
@@ -118,22 +102,22 @@
 							</div>
 
 						</div>
-	
+
 
 					</div>
 					<div class="form-row">
-							<div class="form-group col-md-2">
-								<label for="Selectyourcompanion">Select Your Companion</label> <select id="Selectyourcompanion"
-									class="form-control">
-									<option selected>Choose...</option>
-									<option>Dog</option>
-									<option>Cat</option>
-									<option>Horse</option>
-								</select>
-							</div>
-							<button type="Search" class="btn btn-primary">Search</button>
+						<div class="form-group col-md-2">
+							<label for="Selectyourcompanion">Select Your Companion</label> <select
+								id="Selectyourcompanion" class="form-control">
+								<option selected>Choose...</option>
+								<option>Dog</option>
+								<option>Cat</option>
+								<option>Horse</option>
+							</select>
 						</div>
-</div>
+						<button class="btn btn-primary">Search</button>
+					</div>
+				</div>
 
 
 
@@ -204,106 +188,98 @@
 				<div class="tab-pane fade" id="pills-signup" role="tabpanel"
 					aria-labelledby="pills-signup-tab">
 
-
-					<form>
+					<form:form action="${pageContext.request.contextPath}/signUp"
+						modelAttribute="signUser" method="POST">
 
 						<div class="form-row">
 							<div class="form-group col-md-3">
-								<label for="username"> Name</label> <input type="text"
-									class="form-control" id="username">
+								<form:label path="userName" for="username">User Name</form:label>
+								<form:input path="userName" class="form-control" id="username" />
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-3">
+								<form:label path="email" for="signEmail">Email</form:label>
+								<form:input path="email" class="form-control" id="signEmail" />
+							</div>
+							<div class="form-group col-md-3">
+								<form:label path="password" for="signPassword">Password</form:label>
+								<form:input type="password" path="password" class="form-control"
+									id="signPassword" />
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<form:label path="address" for="address">Address</form:label>
+								<form:input path="address" class="form-control" id="address"
+									placeholder="1234 Main St" />
+
+
+							</div>
+
+							<div class="form-group col-md-3">
+								<form:label path="phoneNumber" for="phonenumber">PhoneNumber</form:label>
+								<form:input path="phoneNumber" class="form-control"
+									id="phoneNumber" />
 							</div>
 						</div>
 
 						<div class="form-row">
-							<div class="form-group col-md-3">
-								<label for="inputEmail4">Email</label> <input type="email"
-									class="form-control" id="inputEmail4">
+							<div class="form-group col-md-2">
+								<form:label path="age" for="age">Age</form:label>
+								<form:input path="age" class="form-control" id="age" />
 							</div>
-							<div class="form-group col-md-3">
-								<label for="inputPassword4">Password</label> <input
-									type="password" class="form-control" id="inputPassword4">
+
+
+							<div class="form-group col-md-2">
+								<form:label path="dateOfBirth" for="dateOfBirth">DateOfBirth</form:label>
+								<form:input path="dateOfBirth" class="form-control"
+									id="dateOfBirth" />
 							</div>
+
+
+							<div class="form-group col-md-2">
+								<form:label path="gender" for="gender">Gender</form:label>
+								<form:input path="gender" class="form-control" id="gender" />
+							</div>
+
+
+							<div class="form-group col-md-2">
+
+								<form:label path="role" for="role">Role</form:label>
+								<form:input path="role" class="form-control" id="role" />
+							</div>
+
+
+							<div class="form-group col-md-2">
+
+								<form:label path="housingType" for="inputhousingtype">Input Housing Type</form:label>
+								<form:input path="housingType" class="form-control"
+									id="housingType" />
+							</div>
+
 						</div>
+
 
 
 						<div class="form-row">
 							<div class="form-group col-md-4">
-								<label for="inputAddress">Address</label> <input type="text"
-									class="form-control" id="inputAddress"
-									placeholder="1234 Main St">
+								<form:label path="ssn" for="ssn">SSN</form:label>
+								<form:input path="ssn" class="form-control" id="ssn" />
 							</div>
-							<div class="form-group col-md-3">
-								<label for="phonenumber">Phone Number</label> <input type="text"
-									class="form-control" id="phonenumber">
-							</div>
-						</div>
+							<div class="form-group col-md-4">
 
-						<div class="form-row">
-							<div class="form-group col-md-2">
-								<label for="age">Age</label> <input type="text"
-									class="form-control" id="age">
-							</div>
-							<div class="form-group ">
-								<label for="dateofbirth">Date Of Birth</label> <input
-									type="text" class="form-control" id="dateofbirth">
-							</div>
-							<div class="form-group col-md-2">
-								<label for="gender">Gender</label> <select id="gender"
-									class="form-control">
-									<option selected>Choose...</option>
-									<option>Male</option>
-									<option>Female</option>
-								</select>
-							</div>
-							<div class="form-group col-md-2">
-								<label for="role">Role</label> <select id="role"
-									class="form-control">
-									<option selected>Choose...</option>
-									<option>Donar</option>
-										<option>Adopter</option>
-								</select>
+								<form:label path="income" for="income">income</form:label>
+								<form:input path="income" class="form-control" id="income" />
 							</div>
 
-
-							<div class="form-group col-md-2">
-								<label for="inputhousingtype">Housing Type</label> <select
-									id="inputhousingtype" class="form-control">
-									<option selected>Choose...</option>
-									<option>Apartment</option>
-									<option>Villa</option>
-								</select>
-							</div>
-							<div class="form-row">
-								<div class="form-group col-md-4">
-									<label for="SSN">SSN</label> <input type="text"
-										class="form-control" id="SSN">
-								</div>
-
-
-								<div class="form-group col-md-4">
-									<label for="income">INCOME</label> <input type="text"
-										class="form-control" id="income">
-								</div>
-
-							</div>
 
 						</div>
 
-						<div class="form-group">
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" id="gridCheck">
-								<label class="form-check-label" for="gridCheck"> Check
-									me out </label>
-							</div>
-						</div>
 						<button type="submit" class="btn btn-primary">Sign in</button>
 
-
-					</form>
-
+					</form:form>
 				</div>
-
-
 			</div>
 		</main>
 
@@ -447,5 +423,19 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 		crossorigin="anonymous"></script>
+		
+		<script>
+
+			
+/* 
+			$("loginModalBtn").on("click", function() {
+
+				console.log("click called");'
+
+				var element = document.getElementById("loginModal");
+				element.addClass("show")
+			}) */
+		
+		</script>
 </body>
 </html>

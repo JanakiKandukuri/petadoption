@@ -37,12 +37,13 @@ public class HomeController {
 //		String formattedDate = dateFormat.format(date);
 //		
 		model.addAttribute("user", new User());  //Add model attributes here to be available for later
+		model.addAttribute("signUser", new User());
 //		model.addAttribute("serverTime", formattedDate);
 
 		return "home";
 	}
 
-	@RequestMapping(value = "/signUp.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "/sign", method = RequestMethod.POST)
 	public String signUp(HttpSession session) {
 		return "signUp";
 	}
