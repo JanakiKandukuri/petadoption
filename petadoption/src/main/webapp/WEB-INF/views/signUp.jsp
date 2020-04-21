@@ -30,7 +30,7 @@
 </head>
 <body>
 	<div class="container">
-		
+
 		<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
 			<a class="navbar-brand" href="#"> <img
 				src="${pageContext.request.contextPath}/resources/images/icon.png" />
@@ -39,8 +39,7 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 
 				<ul class="nav nav-pills" id="pills-tab" role="tablist">
-					<li class="nav-item">
-					<a class="nav-link"
+					<li class="nav-item"><a class="nav-link"
 						id="pills-home-tab" data-toggle="pill" href="#pills-home"
 						role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
 					</li>
@@ -52,15 +51,10 @@
 						role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a></li>
 
 					<li class="nav-item">
-						<a class="nav-link" id="pills-signup-tab" href="${pageContext.request.contextPath}/signUp">Sign Up</a>
+						<a class="nav-link active" id="pills-signup-tab" href="${pageContext.request.contextPath}/signUp">Sign Up</a>
 					</li>
-						
-					<li class="nav-item">
-					<a class="nav-link active" id="pills-login-tab" href="${pageContext.request.contextPath}/login">Login</a></li>
 
-					<!-- <li class="nav-item"><button type="button" id="loginModalBtn"
-							class="btn my-2 my-sm-0" data-toggle="modal"
-							data-target="#loginModal" style="color: #007bff">Login</button></li> -->
+					<li class="nav-item"><a class="nav-link" id="pills-login-tab" href="${pageContext.request.contextPath}/login">Login </a></li>
 
 				</ul>
 
@@ -74,28 +68,102 @@
 
 			<div class="tab-content" id="pills-tabContent">
 
-				<div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
-					<form:form action="${pageContext.request.contextPath}/loginUser" modelAttribute="user" method="POST">
-						
-						<div class="form-group">
-							<form:label path="email" for="email">Email</form:label>
-							
-							<form:input path="email" class="form-control" id="email" />
-							
-							<form:errors path = "email" cssClass = "error" />
-							
-							<small id="emailHelp" class="form-text text-muted">We'll
-								never share your email with anyone else.</small>
+				<div class="tab-pane fade show active" id="pills-signup" role="tabpanel"
+					aria-labelledby="pills-signup-tab">
+
+					<form:form action="${pageContext.request.contextPath}/signUpUser"
+						modelAttribute="signUser" method="POST">
+
+						<div class="form-row">
+							<div class="form-group col-md-3">
+								<form:label path="userName" for="username">User Name</form:label>
+								<form:input path="userName" class="form-control" id="username" />
+							</div>
 						</div>
-						
-						<div class="form-group">
-							<form:label path="password" for="password">Password</form:label>
-							<form:input path="password" class="form-control" id="password" />
+						<div class="form-row">
+							<div class="form-group col-md-3">
+								<form:label path="email" for="signEmail">Email</form:label>
+								<form:input path="email" class="form-control" id="signEmail" />
+							</div>
+							<div class="form-group col-md-3">
+								<form:label path="password" for="signPassword">Password</form:label>
+								<form:input type="password" path="password" class="form-control"
+									id="signPassword" />
+							</div>
 						</div>
-						<button type="submit" class="btn btn-primary">Login</button>
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<form:label path="address" for="address">Address</form:label>
+								<form:input path="address" class="form-control" id="address"
+									placeholder="1234 Main St" />
+
+
+							</div>
+
+							<div class="form-group col-md-3">
+								<form:label path="phoneNumber" for="phonenumber">PhoneNumber</form:label>
+								<form:input path="phoneNumber" class="form-control"
+									id="phoneNumber" />
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="form-group col-md-2">
+								<form:label path="age" for="age">Age</form:label>
+								<form:input path="age" class="form-control" id="age" />
+							</div>
+
+
+							<div class="form-group col-md-2">
+								<form:label path="dateOfBirth" for="dateOfBirth">DateOfBirth</form:label>
+								<form:input path="dateOfBirth" class="form-control"
+									id="dateOfBirth" />
+							</div>
+
+
+							<div class="form-group col-md-2">
+								<form:label path="gender" for="gender">Gender</form:label>
+								<form:input path="gender" class="form-control" id="gender" />
+							</div>
+
+
+							<div class="form-group col-md-2">
+
+								<form:label path="role" for="role">Role</form:label>
+								<form:input path="role" class="form-control" id="role" />
+							</div>
+
+
+							<div class="form-group col-md-2">
+
+								<form:label path="housingType" for="inputhousingtype">Input Housing Type</form:label>
+								<form:input path="housingType" class="form-control"
+									id="housingType" />
+							</div>
+
+						</div>
+
+
+
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<form:label path="ssn" for="ssn">SSN</form:label>
+								<form:input path="ssn" class="form-control" id="ssn" />
+							</div>
+							<div class="form-group col-md-4">
+
+								<form:label path="income" for="income">income</form:label>
+								<form:input path="income" class="form-control" id="income" />
+							</div>
+
+
+						</div>
+
+						<button type="submit" class="btn btn-primary">Sign in</button>
+
 					</form:form>
 				</div>
-			
+
 			</div>
 		</main>
 
@@ -188,45 +256,6 @@
 
 	</footer>
 
-
-	<!-- Login Modal -->
-	<%-- <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
-		aria-labelledby="loginModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Login</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form:form action="${pageContext.request.contextPath}/login" modelAttribute="user" method="POST">
-						
-						<div class="form-group">
-							<form:label path="email" for="email">Email</form:label>
-							
-							<form:input path="email" class="form-control" id="email" />
-							
-							<form:errors path = "email" cssClass = "error" />
-							
-							<small id="emailHelp" class="form-text text-muted">We'll
-								never share your email with anyone else.</small>
-						</div>
-						
-						<div class="form-group">
-							<form:label path="password" for="password">Password</form:label>
-							<form:input path="password" class="form-control" id="password" />
-						</div>
-						<button type="submit" class="btn btn-primary">Login</button>
-					</form:form>
-				</div>
-			</div>
-		</div>
-	</div> --%>
-
-
 	<!-- ************** Bootstrap Javascript tags ************************* -->
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -240,19 +269,6 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 		crossorigin="anonymous"></script>
-		
-		<script>
 
-			
-/* 
-			$("loginModalBtn").on("click", function() {
-
-				console.log("click called");'
-
-				var element = document.getElementById("loginModal");
-				element.addClass("show")
-			}) */
-		
-		</script>
 </body>
 </html>

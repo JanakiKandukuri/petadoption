@@ -36,14 +36,6 @@ public class HomeController {
 //		
 		model.addAttribute("user", new User());  //Add model attributes here to be available for later
 		model.addAttribute("signUser", new User());
-//		model.addAttribute("serverTime", formattedDate);
-
 		return "home";
 	}
-
-	@RequestMapping(value = "/sign", method = RequestMethod.POST)
-	public String signUp(HttpSession session) {
-		return "signUp";
-	}
-
 }
