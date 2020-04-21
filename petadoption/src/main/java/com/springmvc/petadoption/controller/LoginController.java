@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionAttributeStore;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.springmvc.petadoption.dao.LoginDAO;
 import com.springmvc.petadoption.pojo.Login;
@@ -32,10 +34,21 @@ public class LoginController {
 	public User loginUser() {
 		return new User();
 	}
+
+	@ModelAttribute("signUser")
+	public User signUser() {
+		return new User();
+	}
+	
+	@RequestMapping(value="/login",method = RequestMethod.GET)
+	public String login() {
+		System.out.println("login");
+		return "login";
+	}
 	
 	
-	  @RequestMapping(value = "/login", method = RequestMethod.POST)
-	    public String loginProccess(@Valid @ModelAttribute("user") User user, BindingResult bindingResult,HttpSession session) {
+	  @RequestMapping(value = "/loginUser", method = RequestMethod.POST)
+	    public String loginProccess(@ModelAttribute("user") @Validated User user, BindingResult bindingResult,HttpSession session) {
 		   
 		  if (bindingResult.hasErrors()) {
 	            return "login";

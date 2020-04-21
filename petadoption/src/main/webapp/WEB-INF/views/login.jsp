@@ -39,7 +39,8 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 
 				<ul class="nav nav-pills" id="pills-tab" role="tablist">
-					<li class="nav-item"><a class="nav-link active"
+					<li class="nav-item">
+					<a class="nav-link"
 						id="pills-home-tab" data-toggle="pill" href="#pills-home"
 						role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
 					</li>
@@ -54,10 +55,9 @@
 						data-toggle="pill" href="#pills-signup" role="tab"
 						aria-controls="pills-signup" aria-selected="false">Sign Up</a></li>
 						
-					<li class="nav-item">
-						<a class="nav-link" id="pills-login-tab" href="${pageContext.request.contextPath}/login">Login
-						</a>
-					</li>
+					<li class="nav-item"><a class="nav-link active" id="pills-login-tab"
+						data-toggle="pill" href="${pageContext.request.contextPath}/login" role="tab"
+						aria-controls="pills-login" aria-selected="false">Login</a></li>
 
 					<!-- <li class="nav-item"><button type="button" id="loginModalBtn"
 							class="btn my-2 my-sm-0" data-toggle="modal"
@@ -78,7 +78,7 @@
 
 				<!--  Home Tab -->
 
-				<div class="tab-pane fade show active" id="pills-home"
+				<div class="tab-pane fade" id="pills-home"
 					role="tabpanel" aria-labelledby="pills-home-tab">
 
 					<div class="row">
@@ -280,8 +280,8 @@
 					</form:form>
 				</div>
 			
-				<div class="tab-pane fade" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
-					<form:form action="${pageContext.request.contextPath}/login" modelAttribute="user" method="POST">
+				<div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
+					<form:form action="${pageContext.request.contextPath}/loginUser" modelAttribute="user" method="POST">
 						
 						<div class="form-group">
 							<form:label path="email" for="email">Email</form:label>

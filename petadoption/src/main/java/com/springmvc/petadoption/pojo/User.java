@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name="User")
@@ -17,7 +19,7 @@ public class User {
 	@GeneratedValue
 	private Integer userId;
 	
-	@NotNull
+	@NotEmpty
 	private String email;
 	
 	@NotNull
