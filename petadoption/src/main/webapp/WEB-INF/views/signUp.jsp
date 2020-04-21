@@ -39,10 +39,9 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 
 				<ul class="nav nav-pills" id="pills-tab" role="tablist">
-					<li class="nav-item"><a class="nav-link"
-						id="pills-home-tab" data-toggle="pill" href="#pills-home"
-						role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
-					</li>
+					<li class="nav-item"><a class="nav-link" id="pills-home-tab"
+						data-toggle="pill" href="#pills-home" role="tab"
+						aria-controls="pills-home" aria-selected="true">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
 						id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
 						role="tab" aria-controls="pills-profile" aria-selected="false">About</a></li>
@@ -50,11 +49,12 @@
 						id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
 						role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a></li>
 
-					<li class="nav-item">
-						<a class="nav-link active" id="pills-signup-tab" href="${pageContext.request.contextPath}/signUp">Sign Up</a>
-					</li>
+					<li class="nav-item"><a class="nav-link active"
+						id="pills-signup-tab"
+						href="${pageContext.request.contextPath}/signUp">Sign Up</a></li>
 
-					<li class="nav-item"><a class="nav-link" id="pills-login-tab" href="${pageContext.request.contextPath}/login">Login </a></li>
+					<li class="nav-item"><a class="nav-link" id="pills-login-tab"
+						href="${pageContext.request.contextPath}/login">Login </a></li>
 
 				</ul>
 
@@ -68,8 +68,8 @@
 
 			<div class="tab-content" id="pills-tabContent">
 
-				<div class="tab-pane fade show active" id="pills-signup" role="tabpanel"
-					aria-labelledby="pills-signup-tab">
+				<div class="tab-pane fade show active" id="pills-signup"
+					role="tabpanel" aria-labelledby="pills-signup-tab">
 
 					<form:form action="${pageContext.request.contextPath}/signUpUser"
 						modelAttribute="signUser" method="POST">
@@ -116,34 +116,36 @@
 
 							<div class="form-group col-md-2">
 								<form:label path="dateOfBirth" for="dateOfBirth">DateOfBirth</form:label>
-								<form:input path="dateOfBirth" class="form-control"
-									id="dateOfBirth" />
+								<form:input type="date" path="dateOfBirth" class= "form-control"/>
 							</div>
 
 
 							<div class="form-group col-md-2">
 								<form:label path="gender" for="gender">Gender</form:label>
-								<form:input path="gender" class="form-control" id="gender" />
+								<form:select path="gender" class="form-control">
+									<form:option value="Male" />
+									<form:option value="Female" />
+								</form:select>
 							</div>
 
 
 							<div class="form-group col-md-2">
 
 								<form:label path="role" for="role">Role</form:label>
-								<form:input path="role" class="form-control" id="role" />
+								<form:select path="role" class="form-control">
+									<form:option value="Giver" />
+									<form:option value="Adoptor" />
+								</form:select>
 							</div>
 
 
 							<div class="form-group col-md-2">
 
-								<form:label path="housingType" for="inputhousingtype">Input Housing Type</form:label>
-								<form:input path="housingType" class="form-control"
-									id="housingType" />
+								<form:label path="housingType" for="inputhousingtype">Housing Type</form:label>
+								<form:input path="housingType" class="form-control" id="housingType" />
 							</div>
 
 						</div>
-
-
 
 						<div class="form-row">
 							<div class="form-group col-md-4">

@@ -2,21 +2,29 @@ package com.springmvc.petadoption.pojo;
 
 
 import java.io.File;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
 @Table(name="User")
 public class User {
 	
+	
+
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer userId;
 	
 	@NotEmpty
@@ -29,7 +37,7 @@ public class User {
 	
 	private Integer age;
 	
-	private String dateOfBirth;
+	private Date dateOfBirth;
 	
 	private String address;
 	
@@ -97,11 +105,11 @@ public class User {
 		this.age = age;
 	}
 
-	public String getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 
@@ -186,6 +194,14 @@ public class User {
 	}
 
 	
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", email=" + email + ", password=" + password + ", userName=" + userName
+				+ ", age=" + age + ", dateOfBirth=" + dateOfBirth + ", address=" + address + ", phoneNumber="
+				+ phoneNumber + ", housingType=" + housingType + ", reason=" + reason + ", gender=" + gender
+				+ ", image=" + image + ", income=" + income + ", role=" + role + ", ssn=" + ssn + ", vetId=" + vetId
+				+ "]";
+	}
 
 	
 }

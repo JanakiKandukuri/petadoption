@@ -19,7 +19,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.springmvc.petadoption.dao.LoginDAO;
+import com.springmvc.petadoption.dao.UserDAO;
 import com.springmvc.petadoption.pojo.Login;
 import com.springmvc.petadoption.pojo.User;
 
@@ -28,7 +28,7 @@ import com.springmvc.petadoption.pojo.User;
 public class LoginController {
 	
 	@Autowired
-	public LoginDAO loginDao;
+	public UserDAO userDao;
 	
 	@ModelAttribute("user")
 	public User loginUser() {
@@ -42,7 +42,6 @@ public class LoginController {
 	
 	@RequestMapping(value="/login",method = RequestMethod.GET)
 	public String login() {
-		System.out.println("login");
 		return "login";
 	}
 	
@@ -55,7 +54,7 @@ public class LoginController {
 	        }
 		  
 		  
-		  List<User> userList = loginDao.getUserByEmail(user.getEmail(), user.getPassword());
+		  List<User> userList = userDao.getLoginUserByEmail(user.getEmail(), user.getPassword());
 		  
 		  if(!userList.isEmpty() && userList.size() < 2) {
 			  
@@ -68,7 +67,8 @@ public class LoginController {
 			  } else if(userList.get(0).getRole().equals("adopt")) {
 				 
 				  user.setUserId(userList.get(0).getUserId()); 
-				  return "Adoptor"; 
+				  
+				  return "redirect:/adoptor"; 
 				  
 			  } else {
 				  
@@ -87,7 +87,7 @@ public class LoginController {
 	    public String loginOut(User user, SessionStatus sessionStatus,  WebRequest request) {
 		  
 		  sessionStatus.setComplete();
-		  return "redirect:/logout";
+		  return "redirect:/";
 		 
 	    
 	  }

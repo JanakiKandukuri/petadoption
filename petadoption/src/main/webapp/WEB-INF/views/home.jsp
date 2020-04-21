@@ -50,9 +50,9 @@
 						id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
 						role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a></li>
 
-					<li class="nav-item"><a class="nav-link" id="pills-signup-tab"
-						data-toggle="pill" href="#pills-signup" role="tab"
-						aria-controls="pills-signup" aria-selected="false">Sign Up</a></li>
+					<li class="nav-item">
+						<a class="nav-link" id="pills-signup-tab" href="${pageContext.request.contextPath}/signUp">Sign Up</a>
+					</li>
 						
 					<li class="nav-item">
 						<a class="nav-link" id="pills-login-tab" href="${pageContext.request.contextPath}/login">Login
@@ -180,102 +180,6 @@
 
 				</div>
 
-				<div class="tab-pane fade" id="pills-signup" role="tabpanel"
-					aria-labelledby="pills-signup-tab">
-
-					<form:form action="${pageContext.request.contextPath}/signUp"
-						modelAttribute="signUser" method="POST">
-
-						<div class="form-row">
-							<div class="form-group col-md-3">
-								<form:label path="userName" for="username">User Name</form:label>
-								<form:input path="userName" class="form-control" id="username" />
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-3">
-								<form:label path="email" for="signEmail">Email</form:label>
-								<form:input path="email" class="form-control" id="signEmail" />
-							</div>
-							<div class="form-group col-md-3">
-								<form:label path="password" for="signPassword">Password</form:label>
-								<form:input type="password" path="password" class="form-control"
-									id="signPassword" />
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-4">
-								<form:label path="address" for="address">Address</form:label>
-								<form:input path="address" class="form-control" id="address"
-									placeholder="1234 Main St" />
-
-
-							</div>
-
-							<div class="form-group col-md-3">
-								<form:label path="phoneNumber" for="phonenumber">PhoneNumber</form:label>
-								<form:input path="phoneNumber" class="form-control"
-									id="phoneNumber" />
-							</div>
-						</div>
-
-						<div class="form-row">
-							<div class="form-group col-md-2">
-								<form:label path="age" for="age">Age</form:label>
-								<form:input path="age" class="form-control" id="age" />
-							</div>
-
-
-							<div class="form-group col-md-2">
-								<form:label path="dateOfBirth" for="dateOfBirth">DateOfBirth</form:label>
-								<form:input path="dateOfBirth" class="form-control"
-									id="dateOfBirth" />
-							</div>
-
-
-							<div class="form-group col-md-2">
-								<form:label path="gender" for="gender">Gender</form:label>
-								<form:input path="gender" class="form-control" id="gender" />
-							</div>
-
-
-							<div class="form-group col-md-2">
-
-								<form:label path="role" for="role">Role</form:label>
-								<form:input path="role" class="form-control" id="role" />
-							</div>
-
-
-							<div class="form-group col-md-2">
-
-								<form:label path="housingType" for="inputhousingtype">Input Housing Type</form:label>
-								<form:input path="housingType" class="form-control"
-									id="housingType" />
-							</div>
-
-						</div>
-
-
-
-						<div class="form-row">
-							<div class="form-group col-md-4">
-								<form:label path="ssn" for="ssn">SSN</form:label>
-								<form:input path="ssn" class="form-control" id="ssn" />
-							</div>
-							<div class="form-group col-md-4">
-
-								<form:label path="income" for="income">income</form:label>
-								<form:input path="income" class="form-control" id="income" />
-							</div>
-
-
-						</div>
-
-						<button type="submit" class="btn btn-primary">Sign in</button>
-
-					</form:form>
-				</div>
-			
 				<div class="tab-pane fade" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
 					<form:form action="${pageContext.request.contextPath}/login" modelAttribute="user" method="POST">
 						
